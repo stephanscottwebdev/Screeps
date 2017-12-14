@@ -13,7 +13,7 @@ module.exports.loop = function () {
     }
     */
 //Gives roles from assigned modules to creeps.
-    for(var name in Game.creeps) {
+    for (var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
@@ -29,137 +29,137 @@ module.exports.loop = function () {
         }
     }
 // Deletes memory of dead creeps.
-     for(var i in Memory.creeps) {
+     for (var i in Memory.creeps) {
         if(!Game.creeps[i]) {
             delete Memory.creeps[i];
         }
     }
 // Respawns dead creeps by name(id) then assigns roles form the modules.
-    if(!Game.creeps["Harvester1"]) {
+    if (!Game.creeps["Harvester1"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, CARRY, CARRY, MOVE], 'Harvester1' );
     }
     
-    if(Game.creeps["Harvester1"]) {
+    if (Game.creeps["Harvester1"]) {
         Game.creeps['Harvester1'].memory.role = 'harvester';
     }
     
-    if(!Game.creeps["Harvester2"]) {
+    if (!Game.creeps["Harvester2"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, CARRY, CARRY, MOVE], 'Harvester2' );
     }
     
-    if(Game.creeps["Harvester2"]) {
+    if (Game.creeps["Harvester2"]) {
         Game.creeps['Harvester2'].memory.role = 'harvester';
     }
 
-    if(!Game.creeps["HarvesterBig"]) {
+    if (!Game.creeps["HarvesterBig"]) {
         Game.spawns['Spawn1'].createCreep( [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE], 'HarvesterBig' );
     }
     
-    if(Game.creeps["HarvesterBig"]) {
+    if (Game.creeps["HarvesterBig"]) {
         Game.creeps['HarvesterBig'].memory.role = 'harvester';
     }
     
-    if(!Game.creeps["Harvester3"]) {
+    if (!Game.creeps["Harvester3"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, CARRY, CARRY, MOVE], 'Harvester3' );
     }
     
-    if(Game.creeps["Harvester3"]) {
+    if (Game.creeps["Harvester3"]) {
         Game.creeps['Harvester3'].memory.role = 'harvester';
     }
     
-    if(!Game.creeps["Upgrader1"]) {
+    if (!Game.creeps["Upgrader1"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE, MOVE], 'Upgrader1' );
     }
     
-    if(Game.creeps["Upgrader1"]) {
+    if (Game.creeps["Upgrader1"]) {
         Game.creeps['Upgrader1'].memory.role = 'upgrader';
     }
     
-    if(!Game.creeps["Upgrader2"]) {
+    if (!Game.creeps["Upgrader2"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, CARRY, CARRY, MOVE], 'Upgrader2' );
     }
     
-    if(Game.creeps["Upgrader2"]) {
+    if (Game.creeps["Upgrader2"]) {
         Game.creeps['Upgrader2'].memory.role = 'upgrader';
     }
     
-    if(!Game.creeps["Upgrader3"]) {
+    if (!Game.creeps["Upgrader3"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, CARRY, CARRY, MOVE], 'Upgrader3' );
     }
     
-    if(Game.creeps["Upgrader3"]) {
+    if (Game.creeps["Upgrader3"]) {
         Game.creeps['Upgrader3'].memory.role = 'upgrader';
     }
     
-    if(!Game.creeps["UpgraderBig"]) {
+    if (!Game.creeps["UpgraderBig"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE], 'UpgraderBig' );
     }
     
-    if(Game.creeps["UpgraderBig"]) {
+    if (Game.creeps["UpgraderBig"]) {
         Game.creeps['UpgraderBig'].memory.role = 'upgrader';
     }
     
-    if(!Game.creeps["UpgraderBig2"]) {
+    if (!Game.creeps["UpgraderBig2"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], 'UpgraderBig2' );
     }
     
-    if(Game.creeps["UpgraderBig2"]) {
+    if (Game.creeps["UpgraderBig2"]) {
         Game.creeps['UpgraderBig2'].memory.role = 'upgrader';
     }
     
-    if(!Game.creeps["UpgraderBig3"]) {
+    if (!Game.creeps["UpgraderBig3"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], 'UpgraderBig3' );
     }
     
-    if(Game.creeps["UpgraderBig3"]) {
+    if (Game.creeps["UpgraderBig3"]) {
         Game.creeps['UpgraderBig3'].memory.role = 'upgrader';
     }
     
-    if(!Game.creeps["Builder1"]) {
+    if (!Game.creeps["Builder1"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE], 'Builder1' );
     }
     
-    if(Game.creeps["Builder1"]) {
+    if (Game.creeps["Builder1"]) {
         Game.creeps['Builder1'].memory.role = 'builder';
     }
     
-    if(!Game.creeps["Builder2"]) {
+    if (!Game.creeps["Builder2"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE], 'Builder2' );
     }
     
-    if(Game.creeps["Builder2"]) {
+    if (Game.creeps["Builder2"]) {
         Game.creeps['Builder2'].memory.role = 'builder';
     }
     
-    if(!Game.creeps["Builder3"]) {
+    if (!Game.creeps["Builder3"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE], 'Builder3' );
     }
     
-    if(Game.creeps["Builder3"]) {
+    if (Game.creeps["Builder3"]) {
         Game.creeps['Builder3'].memory.role = 'builder';
     }
     
-    if(!Game.creeps["Repair1"]) {
+    if (!Game.creeps["Repair1"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE, MOVE], 'Repair1' );
     }
     
-    if(Game.creeps["Repair1"]) {
+    if (Game.creeps["Repair1"]) {
         Game.creeps['Repair1'].memory.role = 'repairer';
     }
     
-    if(!Game.creeps["Repair2"]) {
+    if (!Game.creeps["Repair2"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE, MOVE], 'Repair2' );
     }
     
-    if(Game.creeps["Repair2"]) {
+    if (Game.creeps["Repair2"]) {
         Game.creeps['Repair2'].memory.role = 'repairer';
     }
     
-    if(!Game.creeps["Repair3"]) {
+    if (!Game.creeps["Repair3"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, CARRY, CARRY, MOVE], 'Repair3' );
     }
     
-    if(Game.creeps["Repair3"]) {
+    if (Game.creeps["Repair3"]) {
         Game.creeps['Repair3'].memory.role = 'repairer';
     }
 }
