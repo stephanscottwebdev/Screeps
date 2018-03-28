@@ -34,6 +34,18 @@ module.exports.loop = function () {
             delete Memory.creeps[i];
         }
     }
+	
+	//Find structure towers and attack hostile creeps.
+    var towers = Game.rooms.W77N79.find(FIND_STRUCTURES, {
+        filter: (s) => s.structureType == STRUCTURE_TOWER
+    });
+    for (let tower of towers) {
+        var target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if (target != undefined) {
+            tower.attack(target);
+        }
+    }
+	
 // Respawns dead creeps by name(id) then assigns roles form the modules.
     if(!Game.creeps["Harvester1"]) {
         Game.spawns['Spawn1'].createCreep( [WORK, WORK, CARRY, CARRY, MOVE], 'Harvester1' );
@@ -307,55 +319,6 @@ var roleRepairer = {
 };
 module.exports = roleRepairer;
 
----------------------------------------------------------------------------------
-
-var roleTower = {
-
-    defendMyRoom: function(myRoomName) {
-    
-        var hostiles = Game.rooms[myRoomName].find(FIND_HOSTILE_CREEPS);
-        var towers = Game.rooms[myRoomName].find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
-
-// If there are hostiles - attack them. 
-        if (hostiles.length > 0) {
-            var username = hostiles[0].owner.username;
-            Game.notify(`User ${username} spotted in room ${myRoomName}`);
-            towers.forEach(tower => tower.attack(hostiles[0]));
-            creep.say('🛡️ defend this house!');
-
-        }
-
-// If there are no hostiles..
-        if (hostiles.length === 0) {
-            
-            // First heal any damaged creeps.
-            for (let name in Game.creeps) {
-                // get the creep object
-                var creep = Game.creeps[name];
-                if (creep.hits < creep.hitsMax) {
-                    towers.forEach(tower => tower.heal(creep));
-                    creep.say('💉️ healing creeps');
-                }
-            }        
-        
-           for (var i in towers){
-                //...repair buildings until half of the tower energy is gone.
-                if (towers.energy > ((towers.energyCapacity / 10)* 9)){
-
-                    // Find the closest damaged Structure.
-                    var closestDamagedStructure = towers.pos.findClosestByRange(FIND_STRUCTURES, {filter: (s) => s.hits < s.hitsMax && s.structureType != STRUCTURE_WALL && s.structureType != STRUCTURE_RAMPART});
-    	            if(closestDamagedStructure) {
-    	 	            towers.repair(closestDamagedStructure);
-    	 	            creep.say('🛠️ repairing buildings');
-                    }
-                }
-            }
-            
-        }
-    }
-}
-
-module.exports = roleTower;
 
 ---------------------------------------------------------------------------
 
