@@ -27,6 +27,18 @@ module.exports.loop = function() {
         if (creep.memory.role == 'Repairer') {
             roleRepairer.run(creep);
         }
+        // if (creep.memory.role == 'Ranged') {
+        //     ranged.run(creep);
+        // }
+        // if (creep.memory.role == 'Healer') {
+        //     healer.run(creep);
+        // }
+        // if (creep.memory.role == 'Melee') {
+        //     melee.run(creep);
+        // }
+        // if (creep.memory.role == 'Hybrid') {
+        //     hybrid.run(creep);
+        // }
     }
     // Deletes memory of dead creeps.
     for (var i in Memory.creeps) {
@@ -126,6 +138,32 @@ module.exports.loop = function() {
     if (Game.creeps["Repair3"]) {
         Game.creeps['Repair3'].memory.role = 'Repairer';
     }
+    // Defensive creeps.
+    // if (!Game.creeps["Melee1"]) {
+    //     Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], 'Melee1');
+    // }
+    // if (Game.creeps["Melee1"]) {
+    //     Game.creeps['Melee1'].memory.role = 'Melee';
+    // }
+    // if (!Game.creeps["Ranged1"]) {
+    //     Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], 'Ranged1');
+    // }
+    // if (Game.creeps["Ranged1"]) {
+    //     Game.creeps['Ranged1'].memory.role = 'Ranged';
+    // }
+    // if (!Game.creeps["Healer1"]) {
+    //     Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], 'Healer1');
+    // }
+    // if (Game.creeps["Healer1"]) {
+    //     Game.creeps['Healer1'].memory.role = 'Healer';
+    // }
+    // if (!Game.creeps["Hybrid1"]) {
+    //     Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], 'Hybrid1');
+    // }
+    // if (Game.creeps["Hybrid1"]) {
+    //     Game.creeps['Hybrid1'].memory.role = 'Hybrid';
+    // }
+    
 }
 
 

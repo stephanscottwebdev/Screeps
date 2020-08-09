@@ -12,9 +12,9 @@
 // };
 
 "use strict";
-// var listUtils = require("util.list");
-// var partUtils = require("util.parts");
-// var requestUtils = require("util.requests");
+var listUtils = require("util.list");
+var partUtils = require("util.parts");
+var requestUtils = require("util.requests");
 
 module.exports.updateGlobal = function(actions) {
 }
